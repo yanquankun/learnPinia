@@ -31,6 +31,7 @@ import { StateTree, StoreGeneric } from './types'
  * 4. 提供开发工具集成
  */
 export function createPinia(): Pinia {
+  // pinia的每个实例都是独立的，每个实例各自管理自己的状态和副作用
   // 创建一个可停止的 effect scope，用于管理副作用
   // effectScope 允许我们批量管理一组响应式副作用
   // 通过 scope.stop() 可以一次性停止所有副作用
