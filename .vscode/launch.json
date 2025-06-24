@@ -5,14 +5,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "调试pinia",
+      "name": "调试pinias",
       "type": "chrome",
       "request": "launch",
-      "url": "http://localhost:5173/demo-counter",
+      "url": "http://localhost:5173/",
       "webRoot": "${workspaceFolder}",
       "sourceMaps": true,
       "trace": true,
-      "skipFiles": ["<node_internals>/**"]
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMapPathOverrides": {
+        "http://localhost:5173/src/*": "${workspaceFolder}/learnPinia/packages/playground/src/*"
+      }
     }
   ]
 }

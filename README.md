@@ -13,25 +13,28 @@ _这是个人学习Pinia的fork仓库，已删除多余代码，只保留pinia�
 
 ```json
 {
-  "name": "调试pinia",
+  "name": "调试pinia+playground",
   "type": "chrome",
   "request": "launch",
-  "url": "http://localhost:5173/demo-counter",
+  "url": "http://localhost:5173/",
   "webRoot": "${workspaceFolder}",
   "sourceMaps": true,
   "trace": true,
-  "skipFiles": ["<node_internals>/**"]
+  "skipFiles": ["<node_internals>/**"],
+  "sourceMapPathOverrides": {
+    "http://localhost:5173/src/*": "${workspaceFolder}/learnPinia/packages/playground/src/*"
+  }
 }
 ```
 
-注意：url为playground项目的本地地址，如果你有其他的地址配置，请更新为新的地址
+注意：url和sourceMapPathOverrides中的地址为为playground项目的本地地址，如果你有其他的地址配置，请更新为新的地址
 
 - 如果你是在非个人空间中运行的项目，那么直接在项目根目录中的.vscode的launch.json进行如上配置即可
 
 #### 安装依赖
 
 ```bash
-pnpm install --frozen-lockfile 
+pnpm install --frozen-lockfile
 ```
 
 #### 项目启动
