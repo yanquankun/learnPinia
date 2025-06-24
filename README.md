@@ -5,6 +5,8 @@ _这是个人学习Pinia的fork仓库，已删除多余代码，只保留pinia�
 > > packages/pinia：pinia源码  
 > > packages/playground 调试包
 
+<a id="debug"></a>
+
 #### 调试方式
 
 - 如果你是在个人的工作空间中运行的项目，复制.vscode目录中launch.json的以下代码到工作空间中的.vscode目录中launch.json的`configurations`字段中
@@ -43,6 +45,22 @@ pnpm play
 ```bash
 pnpm build
 ```
+
+#### 项目调试
+
+1. 启动demo项目
+
+```bash
+pnpm play
+```
+
+2. 配置launch.json
+
+[参考调试方式](#debug)
+
+3. 运行调试
+
+![调试界面](https://oss.yanquankun.cn/oss-cdn/image-20250620160020922.png!watermark)
 
 `附官方地址：`
 
