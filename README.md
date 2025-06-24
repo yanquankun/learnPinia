@@ -1,203 +1,51 @@
-<p align="center">
-  <a href="https://pinia.vuejs.org" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://pinia.vuejs.org/logo.svg" alt="Pinia logo">
-  </a>
-</p>
-<br/>
-<p align="center">
-  <a href="https://npmjs.com/package/pinia"><img src="https://badgen.net/npm/v/pinia" alt="npm package"></a>
-  <a href="https://github.com/vuejs/pinia/actions/workflows/ci.yml"><img src="https://github.com/vuejs/pinia/actions/workflows/ci.yml/badge.svg" alt="build status"></a>
-  <a href="https://codecov.io/gh/vuejs/pinia"><img src="https://codecov.io/gh/vuejs/pinia/graph/badge.svg?token=rU2xxQ6BGH"/></a>
-</p>
-<br/>
+_这是个人学习Pinia的fork仓库，已删除多余代码，只保留pinia源码以及测试包_
 
-# Pinia
+> 目录介绍
+>
+> > packages/pinia：pinia源码  
+> > packages/playground 调试包
 
-> Intuitive, type safe and flexible Store for Vue
+#### 调试方式
 
-- 💡 Intuitive
-- 🔑 Type Safe
-- ⚙️ Devtools support
-- 🔌 Extensible
-- 🏗 Modular by design
-- 📦 Extremely light
-- ⛰️ Nuxt Module
+- 如果你是在个人的工作空间中运行的项目，复制.vscode目录中launch.json的以下代码到工作空间中的.vscode目录中launch.json的`configurations`字段中
 
-The latest version of pinia works with Vue 3. See the branch [v2](https://github.com/vuejs/pinia/tree/v2) for a version that works with Vue 2.
+```json
+{
+  "name": "调试pinia",
+  "type": "chrome",
+  "request": "launch",
+  "url": "http://localhost:5173/demo-counter",
+  "webRoot": "${workspaceFolder}",
+  "sourceMaps": true,
+  "trace": true,
+  "skipFiles": ["<node_internals>/**"]
+}
+```
 
-Pinia is the most similar English pronunciation of the word _pineapple_ in Spanish: _piña_. A pineapple is in reality a group of individual flowers that join together to create a multiple fruit. Similar to stores, each one is born individually, but they are all connected at the end. It's also a delicious tropical fruit indigenous to South America.
+注意：url为playground项目的本地地址，如果你有其他的地址配置，请更新为新的地址
 
-## 👉 [Demo with Vue 3 on StackBlitz](https://stackblitz.com/github/piniajs/example-vue-3-vite)
+- 如果你是在非个人空间中运行的项目，那么直接在项目根目录中的.vscode的launch.json进行如上配置即可
 
-## 👉 [Demo with Nuxt 3 on StackBlitz](https://stackblitz.com/github/piniajs/example-nuxt-3)
-
-## Help me keep working on this project 💚
-
-- [Become a Sponsor on GitHub](https://github.com/sponsors/posva)
-- [One-time donation via PayPal](https://paypal.me/posva)
-
-<!--sponsors start-->
-
-<h4 align="center">Gold Sponsors</h4>
-<p align="center">
-    <a href="https://www.coderabbit.ai/?utm_source=vuerouter&utm_medium=sponsor" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source srcset="https://posva-sponsors.pages.dev/logos/coderabbitai-dark.svg" media="(prefers-color-scheme: dark)" height="72px" alt="CodeRabbit" />
-      <img src="https://posva-sponsors.pages.dev/logos/coderabbitai-light.svg" height="72px" alt="CodeRabbit" />
-    </picture>
-  </a>
-</p>
-
-<h4 align="center">Silver Sponsors</h4>
-<p align="center">
-    <a href="https://www.vuemastery.com/" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source srcset="https://posva-sponsors.pages.dev/logos/vuemastery-dark.png" media="(prefers-color-scheme: dark)" height="42px" alt="VueMastery" />
-      <img src="https://posva-sponsors.pages.dev/logos/vuemastery-light.svg" height="42px" alt="VueMastery" />
-    </picture>
-  </a>
-    <a href="https://www.prefect.io/" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source srcset="https://posva-sponsors.pages.dev/logos/prefectlogo-dark.svg" media="(prefers-color-scheme: dark)" height="42px" alt="Prefect" />
-      <img src="https://posva-sponsors.pages.dev/logos/prefectlogo-light.svg" height="42px" alt="Prefect" />
-    </picture>
-  </a>
-    <a href="https://route4me.com" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source srcset="https://posva-sponsors.pages.dev/logos/route4me.png" media="(prefers-color-scheme: dark)" height="42px" alt="Route Optimizer and Route Planner Software" />
-      <img src="https://posva-sponsors.pages.dev/logos/route4me.png" height="42px" alt="Route Optimizer and Route Planner Software" />
-    </picture>
-  </a>
-</p>
-
-<h4 align="center">Bronze Sponsors</h4>
-<p align="center">
-    <a href="https://storyblok.com" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source srcset="https://posva-sponsors.pages.dev/logos/storyblok.png" media="(prefers-color-scheme: dark)" height="26px" alt="Storyblok" />
-      <img src="https://posva-sponsors.pages.dev/logos/storyblok.png" height="26px" alt="Storyblok" />
-    </picture>
-  </a>
-    <a href="https://nuxtlabs.com" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source srcset="https://posva-sponsors.pages.dev/logos/nuxt-dark.svg" media="(prefers-color-scheme: dark)" height="26px" alt="NuxtLabs" />
-      <img src="https://posva-sponsors.pages.dev/logos/nuxt-light.svg" height="26px" alt="NuxtLabs" />
-    </picture>
-  </a>
-    <a href="https://stormier.ninja" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source srcset="https://avatars.githubusercontent.com/u/2486424?u=7b0c73ae5d090ce53bf59473094e9606fe082c59&v=4" media="(prefers-color-scheme: dark)" height="26px" alt="Stanislas Ormières" />
-      <img src="https://avatars.githubusercontent.com/u/2486424?u=7b0c73ae5d090ce53bf59473094e9606fe082c59&v=4" height="26px" alt="Stanislas Ormières" />
-    </picture>
-  </a>
-</p>
-
-<!--sponsors end-->
-
----
-
-## FAQ
-
-A few notes about the project and possible questions:
-
-**Q**: _Is Pinia the successor of Vuex?_
-
-**A**: [Yes](https://vuejs.org/guide/scaling-up/state-management.html#pinia)
-
-**Q**: _What about dynamic modules?_
-
-**A**: Dynamic modules are not type safe, so instead [we allow creating different stores](https://pinia.vuejs.org/cookbook/composing-stores.html) that can be imported anywhere
-
-## Installation
+#### 安装依赖
 
 ```bash
-# or pnpm or yarn
-npm install pinia
+pnpm ci
 ```
 
-## Usage
+#### 项目启动
 
-### Install the plugin
-
-Create a pinia (the root store) and pass it to app:
-
-```js
-// Vue 3
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import App from './App.vue'
-
-const pinia = createPinia()
-const app = createApp(App)
-
-app.use(pinia)
-app.mount('#app')
+```bash
+pnpm play
 ```
 
-For more detailed instructions, including [Nuxt configuration](https://pinia.vuejs.org/ssr/nuxt.html#nuxt-js), check the [Documentation](https://pinia.vuejs.org).
+#### 项目打包
 
-### Create a Store
-
-You can create as many stores as you want, and they should each exist in different files:
-
-```ts
-import { defineStore } from 'pinia'
-
-// main is the name of the store. It is unique across your application
-// and will appear in devtools
-export const useMainStore = defineStore('main', {
-  // a function that returns a fresh state
-  state: () => ({
-    counter: 0,
-    name: 'Eduardo',
-  }),
-  // optional getters
-  getters: {
-    // getters receive the state as first parameter
-    doubleCounter: (state) => state.counter * 2,
-    // use getters in other getters
-    doubleCounterPlusOne(): number {
-      return this.doubleCounter + 1
-    },
-  },
-  // optional actions
-  actions: {
-    reset() {
-      // `this` is the store instance
-      this.counter = 0
-    },
-  },
-})
+```bash
+pnpm build
 ```
 
-`defineStore` returns a function that has to be called to get access to the store:
+`附官方地址：`
 
-```ts
-import { useMainStore } from '@/stores/main'
-import { storeToRefs } from 'pinia'
+[Pinia Git介绍](https://github.com/vuejs/pinia)
 
-export default defineComponent({
-  setup() {
-    const main = useMainStore()
-
-    // extract specific store properties
-    const { counter, doubleCounter } = storeToRefs(main)
-
-    return {
-      // gives access to the whole store in the template
-      main,
-      // gives access only to specific state or getter
-      counter,
-      doubleCounter,
-    }
-  },
-})
-```
-
-## Documentation
-
-To learn more about Pinia, check [its documentation](https://pinia.vuejs.org).
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)
+[Pinia 官网介绍](https://pinia.vuejs.org/zh/introduction.html)
