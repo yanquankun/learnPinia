@@ -31,7 +31,7 @@ _这是个人学习Pinia的fork仓库，已删除多余代码，只保留pinia�
 #### 安装依赖
 
 ```bash
-pnpm ci
+pnpm install --frozen-lockfile 
 ```
 
 #### 项目启动
