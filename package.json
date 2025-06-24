@@ -16,6 +16,7 @@
     "lint": "prettier -c --parser typescript \"packages/*/{src,__tests__,e2e}/**/*.[jt]s?(x)\"",
     "lint:fix": "pnpm run lint --write",
     "test": "pnpm run -r dev:prepare && pnpm run -r test && pnpm run build && pnpm run build:dts && pnpm test:dts",
+    "test:dts": "pnpm run -r test:dts",
     "postinstall": "simple-git-hooks"
   },
   "devDependencies": {
