@@ -3,7 +3,7 @@ _这是个人学习Pinia的fork仓库，已删除多余代码，只保留pinia�
 > 目录介绍
 >
 > > packages/pinia：pinia源码  
-> > packages/playground 调试包
+> > packages/playground: 调试包
 
 <a id="debug"></a>
 
@@ -30,6 +30,8 @@ _这是个人学习Pinia的fork仓库，已删除多余代码，只保留pinia�
 注意：url和sourceMapPathOverrides中的地址为为playground项目的本地地址，如果你有其他的地址配置，请更新为新的地址
 
 - 如果你是在非个人空间中运行的项目，那么直接在项目根目录中的.vscode的launch.json进行如上配置即可
+
+此时，可以同时调试playground和pinia包中的代码啦~😄
 
 #### 安装依赖
 
