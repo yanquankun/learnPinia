@@ -35,7 +35,15 @@ export function createPinia(): Pinia {
   // 创建一个可停止的 effect scope，用于管理副作用
   // effectScope 允许我们批量管理一组响应式副作用
   // 通过 scope.stop() 可以一次性停止所有副作用
-  const scope = effectScope(true)
+
+  // 使用effecScope：
+  // 1. 响应式副作用统一管理与销毁
+  // Pinia 作为状态管理库，核心功能要注册响应式状态（store），并且这些状态会用到 Vue 的响应式系统（如 reactive、computed、watch 等）。
+  // 使用 effectScope，可以把所有和 Pinia store 相关的响应式副作用都“包裹”在一个作用域下，将来只需调用 scope.stop() 就能统一销毁（比如卸载 app 时）。
+
+  // 2. 隔离 store 的响应式副作用
+  // 每个 store 都可能注册自己的 watch、computed 等响应式副作用。把这些副作用都纳入 effectScope，可以避免与其他作用域（比如组件的 effectScope）混淆，增强副作用的隔离性和可控性。
+  const scope = effectScope(true) // detached为true，防止父作用域释放时，子作用域也释放
 
   // 在 effect scope 中运行一个函数，创建一个响应式的状态对象
   // 这个对象将存储所有 store 的状态
