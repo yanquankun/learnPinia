@@ -11,6 +11,7 @@ import {
 window.__USE_DEVTOOLS__ = true
 
 const pinia = createPinia()
+console.log('pinia', pinia)
 
 declare module 'pinia' {
   export interface PiniaCustomProperties {

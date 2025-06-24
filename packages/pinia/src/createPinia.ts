@@ -4,12 +4,8 @@
 // - setActivePinia: 设置当前活动的 Pinia 实例
 // - piniaSymbol: 用于 provide/inject 的 Symbol
 import { Pinia, PiniaPlugin, setActivePinia, piniaSymbol } from './rootStore'
-// 从 vue 库中导入 ref、App、markRaw、effectScope 和 Ref
-// - ref: 创建响应式数据
-// - App: Vue 应用实例类型
-// - markRaw: 标记对象使其不被转为响应式
-// - effectScope: 管理副作用的作用域
-// - Ref: 响应式引用类型
+
+// effectScope 提供给使用者可以脱离于组件外的响应式体系，管理副作用
 import { ref, App, markRaw, effectScope, Ref } from 'vue'
 // 从 devtools 文件中导入 registerPiniaDevtools 和 devtoolsPlugin
 // - 用于集成 Vue DevTools 调试工具
