@@ -22,6 +22,7 @@ declare module 'pinia' {
   }
 }
 
+// 目的是在pinia中注入route，方便在store中使用
 pinia.use(() => ({
   route: computed(() => markRaw(router.currentRoute.value)),
 }))

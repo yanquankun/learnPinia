@@ -65,6 +65,8 @@ export function createPinia(): Pinia {
     install(app: App) {
       // 设置当前活动的 Pinia 实例
       // 这允许在组件 setup 外部调用 useStore()
+      // 设置当前激活的 Pinia 实例，用于后续 defineStore 过程中能找到它。
+      // PS: 调用 defineStore 的地方并不一定拿得到 app 或者 inject(piniaSymbol)。所以 Pinia 需要用一个全局的临时变量，来记录“当前激活的 pinia 实例”，以便在调用 defineStore 时能关联上对应的 Pinia。
       setActivePinia(pinia)
 
       // 保存 Vue 应用实例的引用
